@@ -1,7 +1,7 @@
 
 
 
-export default function User({user}){
+export default function User({user,deleteUser}){
 
     
 
@@ -12,7 +12,7 @@ export default function User({user}){
     <td>{user.phone}</td>
     <td>
       <button className="btn btn-sm btn-primary me-2" data-id={user.id}>Edit</button>
-      <button className="btn btn-sm btn-danger" data-id={user.id}>Delete</button>
+      <button onClick={deleteUser} className="btn btn-sm btn-danger" data-id={user.id}>Delete</button>
     </td>
   </tr>
 }

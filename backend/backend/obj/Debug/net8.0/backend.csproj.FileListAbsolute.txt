@@ -30,3 +30,4 @@
 /Users/mounirelrharbali/Documents/crudApi/backend/backend/obj/Debug/net8.0/backend.pdb
 /Users/mounirelrharbali/Documents/crudApi/backend/backend/obj/Debug/net8.0/backend.genruntimeconfig.cache
 /Users/mounirelrharbali/Documents/crudApi/backend/backend/obj/Debug/net8.0/ref/backend.dll
+/Users/mounirelrharbali/Documents/crudApi/backend/backend/obj/Debug/net8.0/backend.sourcelink.json

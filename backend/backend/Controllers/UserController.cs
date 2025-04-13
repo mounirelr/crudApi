@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
@@ -27,9 +28,23 @@ private static List<User> users = new List<User>
 [HttpGet("getUsers")]
 
 
-public List<User> Get(){
+public ActionResult<List<User>> Get(){
+    
+    return Ok(users);
 
-    return users;
+}
+
+[HttpDelete("delete/{id}")]
+public ActionResult deleteUser(int id){
+
+   User? u = users.FirstOrDefault(u => u.Id == id);
+   if(u!=null){
+    users.Remove(u);
+   
+    return Ok(new { message = "User deleted successfully." });
+   }
+   else
+   return NotFound($"User with Id = {id} not found");
 
 }
 

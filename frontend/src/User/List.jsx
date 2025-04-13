@@ -18,9 +18,35 @@ export default function List(){
     const displayUsers = ()=>{
         return userList.map((user,key)=>{
             
-            return <User user={user} key={key} /> 
+            return <User user={user} key={key}  deleteUser={deleteUser}/> 
         })
 
+    }
+
+    const deleteUser = async (e)=>{
+        e.preventDefault();
+        const id = parseInt(e.currentTarget.dataset.id);
+        try{
+        const response = await fetch(`http://localhost:5165/User/delete/${id}`,{
+            method: "DELETE",
+        });
+
+        if(response.status===200){
+
+            const newUserList = userList.filter(e=>e.id !== id )
+            setUserList(newUserList)
+        }
+        else if(response.status===404){
+            console.log("user Not Found");
+        }
+        else{
+            console.log("failed to delete user");
+        }
+    }catch(error){
+        console.log(error);
+    }
+        
+        
     }
 
     useEffect(()=>{
